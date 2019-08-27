@@ -42,7 +42,7 @@
 ## Grant admin users permission to access single-user servers.
 #
 #  Users should be properly informed if this is enabled.
-#c.JupyterHub.admin_access = False
+c.JupyterHub.admin_access = True
 
 ## DEPRECATED since version 0.7.2, use Authenticator.admin_users instead.
 #c.JupyterHub.admin_users = set()
@@ -88,6 +88,14 @@
 #    - dummy: jupyterhub.auth.DummyAuthenticator
 #    - pam: jupyterhub.auth.PAMAuthenticator
 #c.JupyterHub.authenticator_class = 'jupyterhub.auth.PAMAuthenticator'
+c.JupyterHub.authenticator_class = 'nativeauthenticator.NativeAuthenticator'
+c.Authenticator.check_common_password = True
+c.Authenticator.minimim_password_length = 10
+c.Authenticator.ask_email_on_signup = True
+
+#Desperatly trying to ger a notebook spawned
+c.LocalAuthenticator.create_system_users = True
+c.Authenticator.create_system_users = True
 
 ## The base URL of the entire application.
 #
@@ -442,6 +450,7 @@
 #    - localprocess: jupyterhub.spawner.LocalProcessSpawner
 #    - simple: jupyterhub.spawner.SimpleLocalProcessSpawner
 #c.JupyterHub.spawner_class = 'jupyterhub.spawner.LocalProcessSpawner'
+#c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
 
 ## Path to SSL certificate file for the public facing interface of the proxy
 #
@@ -818,6 +827,7 @@
 #
 #  Defaults to an empty set, in which case no user has admin access.
 #c.Authenticator.admin_users = set()
+c.Authenticator.admin_users = set(["admin", "root"])
 
 ## The max age (in seconds) of authentication info before forcing a refresh of
 #  user auth info.

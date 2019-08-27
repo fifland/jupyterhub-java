@@ -19,6 +19,10 @@ RUN mkdir java-kernel && \
     unzip ijava-1.3.0.zip && \
     python3 install.py --sys-prefix
 
+RUN mkdir authenticators && \
+    git clone https://github.com/jupyterhub/nativeauthenticator.git && \
+    pip install -e nativeauthenticator
+
 #RUN git clone https://github.com/SpencerPark/IJava.git && \
 #    cd IJava && \
 #    chmod u+x gradlew && \
