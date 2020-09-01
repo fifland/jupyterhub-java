@@ -15,4 +15,4 @@ By now the main purpose of this project is to be used in the bridging course for
 As not every student can bring his own notebook, or in some occasions the software simply does not run on their computer, this server is used as a fallback for those students.
 
 ### More is coming soon...
-This Project is still under heavy construction, expect more documentation to be coming soon ;)
+This Project is still under construction, expect more documentation to be coming soon ;)
